@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profane Image</title>
+</head>
+<body>
+    <h1>Profane Image</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="deimg" id="deimg">
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if latestImage %}
+    <h3>Successfully Uploaded : {{ latestImage.filename }}</h3>
+    <br>
+    <img src="{{ latestImage.dimg.url }}" alt="Connect" style="max-height: 300px;">
+    {% endif %}
+    <br>
+    {% if image_li_url %}
+    <img src="/{{ image_li_url }}" alt="Result Here" style="max-height: 300px;">
+    {% endif %}
+</body>
+</html>
